@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   post '/find-user', to: 'users#find'
 
   post 'easy-session', to: 'sessions#create_easy'
+  post 'hard-session', to: 'sessions#create_hard'
 
 end
