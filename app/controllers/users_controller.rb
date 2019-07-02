@@ -20,10 +20,12 @@ class UsersController < ApplicationController
 
   def easy_user
     byebug
+    render json: { user: @user }, status: :created
   end
 
   def hard_user
     byebug
+    render json: { user: @user }, status: :created
   end
 
   def user_params
