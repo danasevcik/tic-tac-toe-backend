@@ -18,6 +18,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def easy_user
+    byebug
+  end
+
+  def hard_user
+    byebug
+  end
+
   def user_params
     params.require(:user).permit(:name, :hometown, :fun_fact)
   end
