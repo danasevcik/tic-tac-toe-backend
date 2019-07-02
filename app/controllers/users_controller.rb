@@ -1,8 +1,6 @@
 class UsersController < ApplicationController
 
   def create
-    byebug
-    # create user with username and password
     @user = User.create(user_params)
     if @user.valid?
       render json: { user: @user }, status: :created
@@ -12,7 +10,6 @@ class UsersController < ApplicationController
   end
 
   def find
-    byebug
     @user = User.find_by(name: user_params[:name])
     if @user.valid?
       render json: { user: @user }, status: :created
