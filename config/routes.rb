@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   resources :sessions
 
   post '/find-user', to: 'users#find'
-  
+
+  post 'easy-session', to: 'sessions#create_easy'
+
 end
