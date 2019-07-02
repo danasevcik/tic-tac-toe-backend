@@ -20,16 +20,26 @@ class UsersController < ApplicationController
 
   def easy_user
     byebug
+    @user = User.find(params[:user][:user_id])
+    if !(@user.high_score)
+      @user.high_score = 0
+    end
+    @user.high_score += params[:user][:score]
     render json: { user: @user }, status: :created
   end
 
   def hard_user
     byebug
+    @user = User.find(params[:user][:user_id])
+    if !(@user.high_score)
+      @user.high_score = 0
+    end
+    @user.high_score += params[:user][:score]
     render json: { user: @user }, status: :created
   end
 
   def user_params
-    params.require(:user).permit(:name, :hometown, :fun_fact)
+    params.require(:user).permit(:name, :hometown, :fun_fact, :high_score)
   end
 
 
