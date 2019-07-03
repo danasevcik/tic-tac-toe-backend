@@ -24,22 +24,22 @@ class UsersController < ApplicationController
   end
 
   def easy_user
-    byebug
     @user = User.find(params[:user][:user_id])
     if !(@user.high_score)
       @user.high_score = 0
     end
     @user.high_score += params[:user][:score]
+    @user.save
     render json: { user: @user }, status: :created
   end
 
   def hard_user
-    byebug
     @user = User.find(params[:user][:user_id])
     if !(@user.high_score)
       @user.high_score = 0
     end
     @user.high_score += params[:user][:score]
+    @user.save
     render json: { user: @user }, status: :created
   end
 
