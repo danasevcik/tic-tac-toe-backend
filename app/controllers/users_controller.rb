@@ -24,6 +24,7 @@ class UsersController < ApplicationController
   end
 
   def easy_user
+    byebug
     @user = User.find(params[:user][:user_id])
     if !(@user.high_score)
       @user.high_score = 0
