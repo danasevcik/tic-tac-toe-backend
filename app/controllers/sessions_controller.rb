@@ -13,7 +13,8 @@ class SessionsController < ApplicationController
   end
 
   def create_comp_easy
-    byebug
+    @session = Session.create(user_id: session_params[:user_id], score: session_params[:score])
+    render json: { session: @session }, status: :created
   end
 
   def session_params
