@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   post '/easy-session', to: 'sessions#create_easy'
   post '/hard-session', to: 'sessions#create_hard'
+  post '/easy-comp-session', to: 'sessions#create_comp_easy'
 
   post '/easy-user', to: 'users#easy_user'
   post '/hard-user', to: 'users#hard_user'

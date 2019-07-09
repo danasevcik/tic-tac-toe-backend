@@ -12,6 +12,10 @@ class SessionsController < ApplicationController
     render json: { session: @session }, status: :created
   end
 
+  def create_comp_easy
+    byebug
+  end
+
   def session_params
     params.require(:session).permit(:user_id, :score)
   end
