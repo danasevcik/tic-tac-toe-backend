@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    byebug
     @user = User.create(user_params)
     if @user.valid?
       render json: { user: @user }, status: :created
@@ -44,7 +45,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :hometown, :fun_fact, :high_score)
+    params.require(:user).permit(:name, :hometown, :fun_fact, :high_score, :username, :password)
   end
 
 
