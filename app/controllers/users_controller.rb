@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :authorized, only: [:create, :index, :find, :easy_user, :hard_user]
+  skip_before_action :authorized, only: [:create, :index, :find, :easy_user, :hard_user, :get_user]
 
   def index
     @users = User.all
@@ -13,6 +13,19 @@ class UsersController < ApplicationController
       render json: { user: @user, jwt: @token }, status: :created
     else
       render json: { message: 'failed to create user' }, status: :not_acceptable
+    end
+  end
+
+  def get_user
+    token = request.headers["authorization"]
+    id = JWT.decode(token, ENV['SECRET_KEY'])[0]["user_id"]
+    @user = User.find(id)
+
+    if @user.valid?
+      @token = encode_token(user_id: @user.id)
+      render json: { user: @user, jwt: @token}
+    else
+      render json: { error: 'failed to find user' }, status: :not_acceptable
     end
   end
 

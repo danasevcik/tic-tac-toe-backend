@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions
 
-  post '/login', to: 'auth#create'
+  get '/get_user', to: 'users#get_user'
 
+  post '/login', to: 'auth#create'
   post '/find-user', to: 'users#find'
 
   post '/easy-session', to: 'sessions#create_easy'
