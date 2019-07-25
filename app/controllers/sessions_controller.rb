@@ -3,7 +3,6 @@ class SessionsController < ApplicationController
 
   def create_easy
     # create easy game with 5 points for score
-    byebug
     @session = Session.create(user_id: session_params[:user_id], score: session_params[:score])
     render json: { session: @session }, status: :created
   end
