@@ -1,7 +1,9 @@
 class SessionsController < ApplicationController
+  skip_before_action :authorized, only: [:create_easy, :create_hard, :create_comp_easy]
 
   def create_easy
     # create easy game with 5 points for score
+    byebug
     @session = Session.create(user_id: session_params[:user_id], score: session_params[:score])
     render json: { session: @session }, status: :created
   end
