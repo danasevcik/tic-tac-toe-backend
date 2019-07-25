@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   def encode_token(payload)
     # should store secret in env variable
-    JWT.encode(payload, 'my_s3cr3t')
+    JWT.encode(payload, ENV['SECRET_KEY'])
   end
 
   def auth_header
