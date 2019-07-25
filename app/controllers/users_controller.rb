@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :authorized, only: [:create, :index]
+  skip_before_action :authorized, only: [:create, :index, :find, :easy_user, :hard_user]
 
   def index
     @users = User.all
