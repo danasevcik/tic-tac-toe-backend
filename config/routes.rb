@@ -14,5 +14,6 @@ Rails.application.routes.draw do
 
   post '/easy-user', to: 'users#easy_user'
   post '/hard-user', to: 'users#hard_user'
+  post '/easy-comp-user', to: 'users#easy_comp_user'
 
 end

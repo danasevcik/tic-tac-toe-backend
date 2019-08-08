@@ -48,6 +48,16 @@ class UsersController < ApplicationController
     render json: { user: @user }, status: :created
   end
 
+  def easy_comp_user
+    @user = User.find(params[:user][:user_id])
+    if !(@user.high_score)
+      @user.high_score = 0
+    end
+    @user.high_score += params[:user][:score]
+    @user.save
+    render json: { user: @user }, status: :created
+  end
+
   def hard_user
     @user = User.find(params[:user][:user_id])
     if !(@user.high_score)
